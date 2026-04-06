@@ -1,0 +1,128 @@
+.homepage {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 169, 126, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 169, 126, 0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+.heroPhotos {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.photoCard {
+  position: absolute;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: floatIn 0.9s forwards;
+}
+
+.photoCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(1.1);
+}
+
+.card1 { width: 280px; height: 380px; top: 5%;  left: -2%; transform: rotate(-4deg);  animation-delay: 0.1s; }
+.card2 { width: 220px; height: 300px; top: 55%; left: 5%;  transform: rotate(2.5deg); animation-delay: 0.25s; }
+.card3 { width: 260px; height: 340px; top: 10%; right: 0%; transform: rotate(3.5deg); animation-delay: 0.4s; }
+.card4 { width: 200px; height: 270px; top: 58%; right: 4%; transform: rotate(-2deg);  animation-delay: 0.55s; }
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; }
+}
+
+/* hero content */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.6s forwards;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.75s forwards;
+}
+
+.brand span {
+  font-style: italic;
+  color: var(--clay);
+}
+
+.tagline {
+  font-size: 1rem;
+  color: rgba(245, 239, 230, 0.6);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.9s forwards;
+}
+
+.btnAccess {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 2.5rem;
+  background: var(--clay);
+  color: var(--dark);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.25s;
+  opacity: 0;
+  animation: fadeUp 0.7s 1.05s forwards;
+}
+
+.btnAccess:hover {
+  background: var(--sand);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(200, 169, 126, 0.3);
+}
+
+.btnAccess svg {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

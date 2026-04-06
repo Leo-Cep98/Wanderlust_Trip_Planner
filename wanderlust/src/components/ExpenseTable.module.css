@@ -1,0 +1,131 @@
+.tableWrap {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.table thead tr {
+  background: var(--ink);
+  color: var(--sand);
+}
+
+.table thead th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.table thead th:nth-child(1) { width: 160px; }
+.table thead th:nth-child(3) { width: 120px; }
+.table thead th:nth-child(4) { width: 130px; }
+.table thead th:nth-child(5) { width: 44px; }
+
+.table tbody tr {
+  border-bottom: 1px solid var(--light-clay);
+  transition: background 0.15s;
+}
+
+.table tbody tr:hover { background: #faf6f0; }
+
+.table tbody td { padding: 0; }
+
+.table tbody td input,
+.table tbody td select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.88rem;
+  color: var(--ink);
+  outline: none;
+}
+
+.table tbody td input:focus,
+.table tbody td select:focus {
+  background: #fff8f0;
+}
+
+.amountCell input {
+  font-weight: 500;
+  color: var(--accent) !important;
+}
+
+.deleteBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  color: rgba(46, 36, 24, 0.3);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: color 0.2s;
+}
+
+.deleteBtn:hover { color: var(--accent); }
+
+.emptyMsg {
+  padding: 2rem !important;
+  text-align: center;
+  color: rgba(46, 36, 24, 0.4);
+  font-size: 0.85rem;
+}
+
+.tableFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  background: var(--light-clay);
+}
+
+.btnAddRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: 1.5px dashed var(--clay);
+  color: var(--clay);
+  padding: 0.5rem 1.1rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.btnAddRow:hover { background: rgba(200, 169, 126, 0.15); }
+
+.totalLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+.totalAmount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.currencyTag {
+  font-size: 0.75rem;
+  color: var(--ink);
+  opacity: 0.5;
+  margin-left: 0.3rem;
+}
