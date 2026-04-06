@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 20px;
+  text-align: center;
 }
 
 .bgGrid {
@@ -37,13 +39,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(0.3) contrast(1.1);
+  filter: sepia(0.1) contrast(1.1);
 }
 
-.card1 { width: 280px; height: 380px; top: 5%;  left: -2%; transform: rotate(-4deg);  animation-delay: 0.1s; }
-.card2 { width: 220px; height: 300px; top: 55%; left: 5%;  transform: rotate(2.5deg); animation-delay: 0.25s; }
-.card3 { width: 260px; height: 340px; top: 10%; right: 0%; transform: rotate(3.5deg); animation-delay: 0.4s; }
-.card4 { width: 200px; height: 270px; top: 58%; right: 4%; transform: rotate(-2deg);  animation-delay: 0.55s; }
+.card1 { width: 280px; height: 380px; top: 5%;  left: -2%; transform: rotate(-4deg);  animation-delay: 0.6s; }
+.card2 { width: 350px; height: 200px; top: 55%; left: 8%;  transform: rotate(3deg); animation-delay: 0.5s; }
+.card3 { width: 260px; height: 340px; top: 3%; right: 0%; transform: rotate(3.5deg); animation-delay: 0.4s; }
+.card4 { width: 400px; height: 270px; top: 48%; right: 4%; transform: rotate(-2deg);  animation-delay: 0.55s; }
 
 @keyframes floatIn {
   from { opacity: 0; transform: translateY(30px); }
@@ -114,7 +116,7 @@
 .btnAccess:hover {
   background: var(--sand);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(200, 169, 126, 0.3);
+  box-shadow: 90px 20px 90px rgba(200, 169, 126, 0.3);
 }
 
 .btnAccess svg {
@@ -125,4 +127,64 @@
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 768px) {
+  .homepage {
+    padding: 10px;
+    justify-content: flex-end; /* Empuja el contenido un poco hacia abajo */
+    padding-bottom: 20%;
+  }
+
+  /* Reducimos el tamaño de todas las fotos de golpe */
+  .photoCard {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Reposicionamos las fotos para que no tapen el centro */
+  .card1 {
+    width: 120px; height: 200px;
+    top: 5%; left: 5%;
+  }
+
+  .card2 {
+    width: 140px; height: 200px;
+    top: 15%; right: 5%; left: auto; /* La mandamos a la derecha */
+  }
+
+  /* Ocultamos las fotos 3 y 4 en móvil para que no se vea saturado */
+  /* Si prefieres verlas, dales un tamaño pequeño como a la card1 */
+  .card3{
+    width: 140px; height: 200px;
+    top: 40%; right: 5%; left: auto;
+  }
+
+  .card4 {
+    width: 200px; height: 200px;
+    top: 40%; left: 5%;
+  }
+
+  /* Ajustamos el contenido central */
+  .heroContent {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .brand {
+    font-size: 3rem; /* Tamaño más manejable para celular */
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding: 0 10px;
+  }
+
+  .btnAccess {
+    width: 100%; /* Botón ancho para que sea fácil de tocar */
+    max-width: 280px;
+    padding: 1.2rem 1.5rem;
+  }
 }
