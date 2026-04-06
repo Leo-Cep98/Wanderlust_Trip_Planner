@@ -6,7 +6,7 @@ import iceland from './img/pic4.jpg'
 import { motion } from 'framer-motion';
 
 const PHOTOS = [
-    { src: bcn, alt: 'Bcn' },
+    { src: bcn, alt: 'bcn' },
     { src: iceland, alt: 'luzDelNorte' },
     { src: horse, alt: 'horse' },
     { src: flight, alt: 'flightWindow' },
