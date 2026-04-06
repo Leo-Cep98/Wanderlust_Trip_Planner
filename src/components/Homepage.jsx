@@ -1,9 +1,9 @@
 import styles from './Homepage.module.css'
 
-import pic1 from '/img/pic1.jpg'
-import pic2 from '/img/pic2.jpg'
-import pic3 from '/img/pic3.jpg'
-import pic4 from '/img/pic4.jpg'
+import pic1 from './img/pic1.jpg'
+import pic2 from './img/pic2.jpg'
+import pic3 from './img/pic3.jpg'
+import pic4 from './img/pic4.jpg'
 import { motion } from 'framer-motion';
 
 const PHOTOS = [
