@@ -66,7 +66,7 @@ export default function Planner({ onBack }) {
         <div className={styles.planner}>
             {/* ── Header ── */}
             <header className={styles.header}>
-                <div className={styles.logo}>Wander<em>lust</em></div>
+                <div className={styles.logo}>Panda's <em>Trip </em> 🐼</div>
                 <button className={styles.btnBack} onClick={onBack}>← Inicio</button>
             </header>
 
