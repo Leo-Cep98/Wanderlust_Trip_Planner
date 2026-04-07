@@ -1,39 +1,50 @@
 import { useState, useEffect } from 'react'
+import { db } from '../firebase.js'
+import { doc, onSnapshot, setDoc } from 'firebase/firestore'
 
-const STORAGE_KEY = 'wanderlust_v2'
+// ID fixed -- evreyone will see the same
+const TRIP_DOC = doc(db, 'trips', 'shared')
 
 const defaultState = {
   tripName: '',
   currency: 'EUR',
   rows: [],
   savedAmount: '',
-  monthlyGoal: '',
+  monthlyGoal: '700',
 }
 
 export function usePlannerState() {
-  const [state, setState] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY)
-      return saved ? { ...defaultState, ...JSON.parse(saved) } : defaultState
-    } catch {
-      return defaultState
-    }
-  })
+  const [state, setState] = useState(defaultState)
+  const [loading, setLoading] = useState(true)
 
+  // Listen to changes in real time from Firestore
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-    } catch {}
-  }, [state])
+    const unsub = onSnapshot(TRIP_DOC, (snap) => {
+      if (snap.exists()) {
+        setState({ ...defaultState, ...snap.data() })
+      }
+      setLoading(false)
+    })
+    return () => unsub()
+  }, [])
 
-  function update(patch) {
-    setState(prev => ({ ...prev, ...patch }))
+  // Saves on Firestore every time the states changes
+  async function update(patch) {
+    const next = { ...state, ...patch }
+    setState(next)
+    try {
+      await setDoc(TRIP_DOC, next)
+    } catch (e) {
+      console.error('Error saving on Firestore:', e)
+    }
   }
 
-  let nextId = (state.rows.length > 0 ? Math.max(...state.rows.map(r => r.id)) + 1 : 1)
+  const nextId = state.rows.length > 0
+      ? Math.max(...state.rows.map(r => r.id)) + 1
+      : 1
 
   function addRow() {
-    const newRow = { id: nextId++, cat: '✈️ Vuelo', desc: '', date: '', amount: '' }
+    const newRow = { id: nextId, cat: '✈️ Vuelo', desc: '', date: '', amount: '' }
     update({ rows: [...state.rows, newRow] })
   }
 
@@ -65,5 +76,6 @@ export function usePlannerState() {
     remaining,
     pct,
     months,
+    loading,
   }
 }
